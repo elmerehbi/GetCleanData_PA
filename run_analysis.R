@@ -2,14 +2,14 @@
 ################# R3 Getting and Cleaning Data - Course Project ##################
 ##################################################################################
 
-# archive is read from "./data" directory
-if(!file.exists("./data/UCI HAR Dataset")){
-        unzip("./data/getdata-projectfiles-UCI HAR Dataset.zip", exdir = "./data/")
+# archive is read from "." directory
+if(!file.exists("./UCI HAR Dataset")){
+        unzip("./getdata-projectfiles-UCI HAR Dataset.zip", exdir = "./")
 }
 
-# # create "processed" directory under "./data" to write tidy sets
-# if(!file.exists("./data/processed")){
-#         dir.create("./data/processed")
+# # create "processed" directory under "." to write tidy sets
+# if(!file.exists("./processed")){
+#         dir.create("./processed")
 # }
 
 ############################# 1 MERGING THE DATA  #############################
@@ -17,8 +17,8 @@ if(!file.exists("./data/UCI HAR Dataset")){
 
 # labels: Links the class labels with their activity name.
 # fea: List of all features (features.txt)
-labels <- read.table("./data/UCI HAR Dataset/activity_labels.txt")
-fea <- read.table("./data/UCI HAR Dataset/features.txt", colClasses = "character")
+labels <- read.table("./UCI HAR Dataset/activity_labels.txt")
+fea <- read.table("./UCI HAR Dataset/features.txt", colClasses = "character")
 
 # tesub/trsub: Each row identifies the subject who performed the 
 # activity for each window sample. Its range is from 1 to 30. (subject_test.txt)
@@ -27,12 +27,12 @@ fea <- read.table("./data/UCI HAR Dataset/features.txt", colClasses = "character
 # trx: Training set (X_train.txt)
 # try_: Training labels (y_train.txt)
 
-tesub <- read.table("./data/UCI HAR Dataset/test/subject_test.txt")
-tex <- read.table("./data/UCI HAR Dataset/test/X_test.txt")
-tey <- read.table("./data/UCI HAR Dataset/test/y_test.txt")
-trsub <- read.table("./data/UCI HAR Dataset/train/subject_train.txt")
-trx <- read.table("./data/UCI HAR Dataset/train/X_train.txt")
-try_ <- read.table("./data/UCI HAR Dataset/train/y_train.txt")
+tesub <- read.table("./UCI HAR Dataset/test/subject_test.txt")
+tex <- read.table("./UCI HAR Dataset/test/X_test.txt")
+tey <- read.table("./UCI HAR Dataset/test/y_test.txt")
+trsub <- read.table("./UCI HAR Dataset/train/subject_train.txt")
+trx <- read.table("./UCI HAR Dataset/train/X_train.txt")
+try_ <- read.table("./UCI HAR Dataset/train/y_train.txt")
 
 colnames(tesub) <- paste("subject"); colnames(trsub) <- paste("subject")
 colnames(labels) <- paste(c("label", "activity"))
